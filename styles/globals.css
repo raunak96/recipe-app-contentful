@@ -101,6 +101,9 @@ footer {
 }
 .rich-text {
 	font-size: 20px;
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-word;
 }
 :is(".rich-text") blockquote,
 h4,
