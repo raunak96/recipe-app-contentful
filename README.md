@@ -1,5 +1,7 @@
 [![wakatime](https://wakatime.com/badge/github/raunak96/recipe-app-contentful.svg)](https://wakatime.com/badge/github/raunak96/recipe-app-contentful)
 ## Recipe App with NextJS + Contentful CMS (with Graphql contentful queries)
+![App Demo](/public/demo.png)
+#### View [Demo](https://recipe-app-contentful.vercel.app/)
 
 ### Getting Started
 - Clone this repo, install the dependencies and run the NextJs server.

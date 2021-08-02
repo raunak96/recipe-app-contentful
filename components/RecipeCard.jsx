@@ -15,7 +15,9 @@ const RecipeCard = ({ recipe }) => {
 				alt="thumbnail"
 				className="rounded"
 			/>
-			<div className="bg-white shadow-lg rounded-b">
+			<div
+				className="bg-white shadow-lg rounded-b relative -top-5 -left-3"
+				style={{ transform: "rotateZ(-1deg)" }}>
 				<div className="p-4">
 					<h3 className="uppercase mb-1">{title}</h3>
 					<p className="text-gray-600 text-base">
