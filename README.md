@@ -29,3 +29,12 @@ Simply use [@contentful/rich-text-react-renderer](https://www.npmjs.com/package/
 - Case 2: **Content added** and its a dynamic page whose path is produced with **getStaticPaths**
   - If in **getStaticPaths**, fallback is **false**, then for newly added content, path will not be regenerated and we will get **404**.
   - To resolve this we set fallback to **true** or **blocking**. True behaves like **getStaticProps** while blocking like **getServerSideProps**. With true, we can show a fallback page like loading when content is being served while with blocking since it is Server Side rendering there is no loading screen and result is show after a blank screen.
+
+### Deploy Web Hook and how to set it
+- Its a hook which triggers deployment based on certain conditons that we supply to it.
+- In our case we have set Deploy hook in **Vercel** to trigger deployment when an entry is published/unpublished in **Contentful**.
+- Setting Up Web Hook
+  - In Vercel, go to `Project -> Settings -> Git -> Deploy Hook -> Create`.
+  - This will produce a **unique URL** which we need to copy.
+  - In Contentful, go to `Settings -> Webhooks -> Add a template`. In our case, we add Vercel template where we paste the **unique url** from above.
+  - After this **webhook settings**, apply the conditons for this hook to trigger.
