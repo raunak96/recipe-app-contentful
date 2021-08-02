@@ -9,7 +9,8 @@ import { getIngredients } from "../../utils";
 
 const RecipeDetailsPage = ({ recipe }) => {
 	const router = useRouter();
-	const { featuredImage, title, cookingTime, ingredients, method } = recipe;
+	const { featuredImage, title, cookingTime, ingredients, method } =
+		recipe ?? {};
 
 	if (router.isFallback) return <Skeleton />;
 	return (
