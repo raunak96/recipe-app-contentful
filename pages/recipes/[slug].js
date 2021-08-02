@@ -66,5 +66,6 @@ export async function getStaticProps({ params: { slug } }) {
 	const recipe = await getRecipeBySlug(slug);
 	return {
 		props: { recipe },
+		revalidate: 10,
 	};
 }

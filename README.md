@@ -1,3 +1,4 @@
+[![wakatime](https://wakatime.com/badge/github/raunak96/recipe-app-contentful.svg)](https://wakatime.com/badge/github/raunak96/recipe-app-contentful)
 ## Recipe App with NextJS + Contentful CMS (with Graphql contentful queries)
 
 ### Getting Started
@@ -12,7 +13,7 @@
 ### Getting data from Contentful CMS with graphql
 - Make POST request to:
   - URL: https://graphql.contentful.com/content/v1/spaces/<SPACE_ID>
-  - Headers: Authorizaton = Bearer <ACCESS_TOKEN>.
+  - Headers: Authorizaton = Bearer <ACCESS_TOKEN>
   - Body: { query : **Graphql Query** }
 - **ACCESS_TOKEN** and **SPACE_ID** can be found in **Settings -> API keys** in Contentful.
   

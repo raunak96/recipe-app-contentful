@@ -19,5 +19,6 @@ export async function getStaticProps() {
 	const recipes = await getAllRecipes();
 	return {
 		props: { recipes },
+		revalidate: 10,
 	};
 }
