@@ -1,12 +1,17 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
+import Skeleton from "../../components/Skeleton";
 import { getAllRecipes, getRecipeBySlug } from "../../lib/gql";
 import { getIngredients } from "../../utils";
 
 const RecipeDetailsPage = ({ recipe }) => {
+	const router = useRouter();
 	const { featuredImage, title, cookingTime, ingredients, method } = recipe;
+
+	if (router.isFallback) return <Skeleton />;
 	return (
 		<Layout title={`${recipe?.title} | Recipe`}>
 			<div className="mb-10">
@@ -22,7 +27,7 @@ const RecipeDetailsPage = ({ recipe }) => {
 					objectFit="cover"
 				/>
 				<div
-					className="bg-white shadow-lg px-3 py-2 rounded inline-block text-3xl relative -top-3 -left-3"
+					className="bg-white shadow-lg px-3 py-2 rounded inline-block text-3xl relative -top-6 -left-3"
 					style={{ transform: "rotateZ(-1deg)" }}>
 					{title}
 				</div>
@@ -59,13 +64,17 @@ export async function getStaticPaths() {
 	}));
 	return {
 		paths,
-		fallback: false,
+		fallback: true,
 	};
 }
 export async function getStaticProps({ params: { slug } }) {
-	const recipe = await getRecipeBySlug(slug);
-	return {
-		props: { recipe },
-		revalidate: 10,
-	};
+	try {
+		const recipe = await getRecipeBySlug(slug);
+		return {
+			props: { recipe },
+			revalidate: 10,
+		};
+	} catch (error) {
+		return { notFound: true };
+	}
 }
